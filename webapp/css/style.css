@@ -1,0 +1,49 @@
+        .customMarginPadding {
+            margin: 10px;
+            padding: 10px;
+        }
+        .customTable {
+            margin: 20px;
+            padding: 20px;
+        }
+        .customForm {
+            margin: 15px;
+            padding: 15px;
+        }
+        .customFooter {
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+        .radioGroup {
+            display: flex;
+            align-items: center; 
+        }
+        
+        .radioButton {
+            margin-right:10px;
+        }
+    .custom-flexbox {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .custom-vbox {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .custom-vbox .sapMLabel {
+        margin-bottom: 5px; 
+    }
+
+    .custom-vbox .sapMInputBase {
+        width: 100%;
+    }
+   
+    
+
+
+       

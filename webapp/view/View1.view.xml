@@ -1,0 +1,44 @@
+<mvc:View controllerName="com.sap.kt.sapproject.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <Page id="page" class="sapUiContentPadding" title="{i18n>LOGINPAGE}">
+        <content>
+            <f:SimpleForm id="SimpleFormChange354"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title=""
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false">
+                <f:content>
+                    <Label text="{i18n>Name}" class="sapUiSmallMarginEnd sapUiTinyMarginBottom" required="true"/>
+                    <Input placeholder="{i18n>Enteryourname}" id="nameInput" class="sapUiSmallMarginBottom"/>
+
+                    <Label text="{i18n>EnterID}" class="sapUiSmallMarginEnd sapUiTinyMarginBottom" required="true"/>
+                    <Input placeholder="{i18n>EnterID}" id="idInput" class="sapUiSmallMarginBottom"/>
+
+                    <Label text="{i18n>captcha}" class="sapUiSmallMarginEnd sapUiTinyMarginBottom" required="true"/>
+                    <Input value="" id="captchaText" editable="false" class="sapUiSmallMarginBottom"/>
+
+                    <Button icon="sap-icon://refresh" press="onRefreshCaptcha" class="sapUiSmallMarginBottom"/>
+
+                    <Label class="sapUiSmallMarginEnd" required="true"></Label>
+                    <Input placeholder="{i18n>EnterCaptcha}" id="captchaInput" class="sapUiSmallMarginBottom"/>
+                    
+					<Label ></Label>
+                    <Button text="{i18n>Login}" press="onLoginPress" class="sapUiSmallMarginTop"/>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

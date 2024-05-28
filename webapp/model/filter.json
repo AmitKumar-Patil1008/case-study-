@@ -1,0 +1,164 @@
+{
+    "FilteredProducts":[
+ {
+        "Categories": "Electronics",
+        "Products": "Phone",
+        "Rating": "4.5"
+      },
+      {
+        "Categories": "Electronics",
+        "Products": "Laptop",
+        "Rating": "4.7"
+      },
+      {
+        "Categories": "Electronics",
+        "Products": "Projector",
+        "Rating": "4.4"
+      },
+      {
+        "Categories": "Fashion",
+        "Products": "Dress",
+        "Rating": "4.5"
+      },
+      {
+        "Categories": "Fashion",
+        "Products": "Shoes",
+        "Rating": "4.2"
+      },
+      {
+        "Categories": "Fashion",
+        "Products": "Handbag",
+        "Rating": "4.7"
+      },
+      {
+        "Categories": "Fashion",
+        "Products": "Sunglasses",
+        "Rating": "4.0"
+      },
+      {
+        "Categories": "Toys & Games",
+        "Products": "Action Figures",
+        "Rating": "4.3"
+      },
+      {
+        "Categories": "Toys & Games",
+        "Products": "Board Games",
+        "Rating": "4.8"
+      },
+      {
+        "Categories": "Toys & Games",
+        "Products": "Dolls",
+        "Rating": "4.1"
+      },
+      {
+        "Categories": "Toys & Games",
+        "Products": "Building Blocks",
+        "Rating": "4.6"
+      },
+      {
+        "Categories": "Books & Stationery",
+        "Products": "Notebook",
+        "Rating": "4.4"
+      },
+      {
+        "Categories": "Books & Stationery",
+        "Products": "Pen Set",
+        "Rating": "4.5"
+      },
+      {
+        "Categories": "Books & Stationery",
+        "Products": "Planner",
+        "Rating": "4.7"
+      },
+      {
+        "Categories": "Books & Stationery",
+        "Products": "Fiction Book Set",
+        "Rating": "4.9"
+      },
+      {
+        "Categories": "Food & Beverages",
+        "Products": "Chocolate Assortment",
+        "Rating": "4.2"
+      },
+      {
+        "Categories": "Food & Beverages",
+        "Products": "Gourmet Coffee Blend",
+        "Rating": "4.6"
+      },
+      {
+        "Categories": "Food & Beverages",
+        "Products": "Tea Sampler",
+        "Rating": "4.3"
+      },
+      {
+        "Categories": "Food & Beverages",
+        "Products": "Artisanal Cheese Selection",
+        "Rating": "4.8"
+      }
+    ],
+    "Categories":[
+      {
+        "key": "Fashion",
+        "name": "Fashion"
+      },
+      {
+        "key": "Toys & Games",
+        "name": "Toys & Games"
+      },
+      {
+        "key": "Books & Stationery",
+        "name": "Books & Stationery"
+      },
+      {
+        "key": "Food & Beverages",
+        "name": "Food & Beverages"
+      },
+      {
+        "key": "Electronics",
+        "name": "Electronics"
+      }
+    ],
+    "Products":[
+      {"key": "Dress", "name": "Dress"},
+      {"key": "Shoes", "name": "Shoes"},
+      {"key": "Handbag", "name": "Handbag"},
+      {"key": "Sunglasses", "name": "Sunglasses"},
+      {"key": "Action Figures", "name": "Action Figures"},
+      {"key": "Board Games", "name": "Board Games"},
+      {"key": "Dolls", "name": "Dolls"},
+      {"key": "Building Blocks", "name": "Building Blocks"},
+      {"key": "Notebook", "name": "Notebook"},
+      {"key": "Pen Set", "name": "Pen Set"},
+      {"key": "Planner", "name": "Planner"},
+      {"key": "Fiction Book Set", "name": "Fiction Book Set"},
+      {"key": "Chocolate Assortment", "name": "Chocolate Assortment"},
+      {"key": "Gourmet Coffee Blend", "name": "Gourmet Coffee Blend"},
+      {"key": "Tea Sampler", "name": "Tea Sampler"},
+      {"key": "Artisanal Cheese Selection", "name": "Artisanal Cheese Selection"},
+      {"key": "Phone", "name": "Phone"},
+      {"key": "Laptop", "name": "Laptop"},
+      {"key": "Projector", "name": "Projector"}
+    ],
+    "Ratings":[
+      {"key": "4.5", "name": "Dress"},
+      {"key": "4.2", "name": "Shoes"},
+      {"key": "4.7", "name": "Handbag"},
+      {"key": "4.0", "name": "Sunglasses"},
+      {"key": "4.3", "name": "Action Figures"},
+      {"key": "4.8", "name": "Board Games"},
+      {"key": "4.1", "name": "Dolls"},
+      {"key": "4.6", "name": "Building Blocks"},
+      {"key": "4.4", "name": "Notebook"},
+      {"key": "4.5", "name": "Pen Set"},
+      {"key": "4.7", "name": "Planner"},
+      {"key": "4.9", "name": "Fiction Book Set"},
+      {"key": "4.2", "name": "Chocolate Assortment"},
+      {"key": "4.6", "name": "Gourmet Coffee Blend"},
+      {"key": "4.3", "name": "Tea Sampler"},
+      {"key": "4.8", "name": "Artisanal Cheese Selection"},
+      {"key": "4.5", "name": "Phone"},
+      {"key": "4.7", "name": "Laptop"},
+      {"key": "4.4", "name": "Projector"}
+    ]
+  }
+  

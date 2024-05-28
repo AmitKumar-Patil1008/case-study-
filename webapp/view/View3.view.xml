@@ -1,0 +1,246 @@
+<mvc:View controllerName="com.sap.kt.sapproject.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+   xmlns:form="sap.ui.layout.form"
+        xmlns:l="sap.ui.layout"
+        xmlns:core="sap.ui.core"
+        xmlns:u="sap.ui.unified"
+         xmlns:m="sap.m"
+        xmlns="sap.m"
+    height="100%">
+    <Page id="page" title="{i18n>PAYMENTPAGE}">
+        <headerContent>
+            <FlexBox justifyContent="End" width="100%">
+                <Button text="{i18n>BACK}" press="onPressBack"></Button>
+            </FlexBox>
+        </headerContent>
+        <content>
+            <NavContainer id="wizardNavContainer">
+                <pages>
+                    <Page id="wizardContentPage" showHeader="false">
+                        <content>
+                            <Wizard id="CreateProductWizard" class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+                                    complete="onPressReview">
+                                <WizardStep id="ProductTypeStep2"
+                                            title="{i18n>Shoppingcartcontents}"
+                                            icon="sap-icon://cart"
+                                            validated="true">
+                                    <Table id="cartTable" items="{path: 'addToCart>/'}" mode="Delete" delete="onPressDelete">
+                <columns>
+                    <Column>
+                        <Text text="{i18n>ID}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Name}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Rating}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Price}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{addToCart>ID}"/>
+                            <Text text="{addToCart>Name}"/>
+                            <RatingIndicator maxValue="7" value="{addToCart>Rating}" tooltip="Rating Tooltip" editable="false"/>
+                            <!-- <Text text="{addToCart>Price}"/>  -->
+                            <Text text="{path: 'addToCart>Price', formatter: '.formatter.formatCurrencyInINRText'}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+      <m:FlexBox class="custom-flexbox">
+    <m:VBox class="custom-vbox">
+        <m:Label text="{i18n>Total}" />
+        <m:Input
+            id="TotalAmountId" width="100%" editable="false" />
+    </m:VBox>
+</m:FlexBox>
+                                </WizardStep>
+                                
+                                <WizardStep id="paymentTypeStep" title="{i18n>PaymentType}" validated="false">
+                                    <RadioButtonGroup columns="1" select="setProductTypeFromRadio" class="radioGroup">
+                                        <buttons>
+                                            <RadioButton text="{i18n>CreditCard}" id="creditCardRadio" class="radioButton"/>
+                                            <RadioButton text="{i18n>BankTransfer}" id="bankTransferRadio" class="radioButton"/>
+                                            <RadioButton text="{i18n>CashonDelivery}" id="cashOnDeliveryRadio" class="radioButton"/>
+                                        </buttons>
+                                    </RadioButtonGroup>
+                                   <form:SimpleForm editable="true" id="CreditCardStep" layout="ResponsiveGridLayout">
+                                        <Label text=" {i18n>CardholderName}"/>
+                                        <Input value="" placeholder="{i18n>EnterCardholdernumber}" required="true" id="creditname" change="CreditCardName" liveChange="creditcardlivename" />
+
+                                        <Label text="{i18n>CardNumber}"  />
+                                        <Input value="" required="true" placeholder="{i18n>Enterthecardnumber}" liveChange="onCreditNumberChange" id="creditnumber" change="CreditCardNumber" maxLength="16" type="Number" />
+
+                                        <Label text="{i18n>SecurityCode}" />
+                                        <Input value="" required="true" placeholder="{i18n>Enterthe3-digitsecuritynumber}" liveChange="crditSecurityNumber" maxLength="3" id="creditsecurity" change="CreditCardSecurity" />
+                                        
+                                        <Label text="{i18n>ExpirationDate}"/>
+                                        <Input value="" required="true" placeholder="{i18n>e.g.12/02/2024}" type="Date" id="expirationDate" liveChange="expirationDateChange" />  
+                                    </form:SimpleForm> 
+                                    <form:SimpleForm id="BankTransferStep" editable="true" layout="ResponsiveGridLayout">
+                                        <form:content>
+                                                <Label text="{i18n>BeneficiaryName}"/>
+                                                <Text text="Singapore Hardware e-Commerce LTD"/>
+                                                <Label text="{i18n>BeneficiaryBank}"/>
+                                                <Text text="CITY BANK, SINGAPORE BRANCH"/>
+                                                <Label text="{i18n>BeneficiaryAccountNumber}"/>
+                                                <Text text="06110702027218"/>
+                                                <Label text="{i18n>BankPhoneNumber}"/>
+                                                <Text text="+65-6224-2622"/>
+                                                <Label text="{i18n>BankEmailAddress}"/>
+                                                <Text text="customerservice@citybank.com"/>
+                                        </form:content>
+                                    </form:SimpleForm>
+ <form:SimpleForm
+                                        id="CashOnDeliveryStep" editable="true" layout="ResponsiveGridLayout">
+                                            <Label text=" {i18n>FirstName}"/>
+                                            <Input value="" placeholder="{i18n>Enteryourfirstname}" required="true"  id="firstname" change="firstname" liveChange="onInputChange" />
+                                            <Label text="{i18n>LastName}" />
+                                            <Input value="" required="true" placeholder="{i18n>Enterthelastname}" id="lastname" change="lastname" liveChange="onInputChange" />
+                                            <Label text="{i18n>PhoneNumber}"  />
+                                            <Input value="" required="true" placeholder="{i18n>Enteryourphonenumber}" maxLength="10" liveChange="phonenumberlivechange" id="phonenumber" change="phonenumber" />
+                                            <Label text="{i18n>EmailId} "/>
+                                            <Input value="" required="true" placeholder="{i18n>EnterYourEmailid}" type="Email"  id="email" change="emailid" liveChange="onInputChange" />   
+                                    </form:SimpleForm>
+                                </WizardStep>
+                                
+                                <WizardStep id="PricingStep" activate="pricingActivate" complete="pricingCompleteStep" validated="true" title="{i18n>BillingAddress}">
+                                    <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                        <form:content>
+       <Label text="{i18n>Address}"/>
+        <Input required="true" placeholder="{i18n>EnterYourStreetnameandhousenumber}" id="address" change="address" />
+
+        <Label text="{i18n>City}" />
+        <Input required="true" placeholder="{i18n>EnterYourCity}" id="city" change="city" />
+
+        <Label text="{i18n>ZipCode}"/>
+        <Input value="" required="true" placeholder="{i18n>Enteryourzipcode}" type="Number" maxLength="6" id="zipcode" />
+
+        <Label text="{i18n>Country}"  required="true" />
+        <Select id="countrySelect" items="{country>/}" change="onChange2">
+        <core:Item key="{country>code}" text="{country>name}" id="country" />
+        </Select>
+
+        <Label text="{i18n>State}"  required="true" />
+        <Select id="stateSelect" items="{state>/}">
+        <core:Item key="{state>key}" text="{state>name}" id="state" />
+        </Select>       
+
+        <Label text="{i18n>Note}"/>
+        <TextArea rows="5" width="100%" placeholder="{i18n>Additionalcomments}" />
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </WizardStep>
+                            </Wizard>
+                        </content>
+                    </Page>
+                    
+                    <!-- New Review Page -->
+                    <Page id="wizardBranchingReviewPage" showHeader="false">
+                        <content>
+                            <Table id="reviewCartTable" items="{path: 'addToCart>/'}" class="customTable">
+            <columns>
+                <Column>
+                    <Text text="{i18n>ID}"/>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Name}"/>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Rating}"/>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Price}"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{addToCart>ID}"/>
+                        <Text text="{addToCart>Name}"/>
+                        <RatingIndicator maxValue="7" value="{addToCart>Rating}" tooltip="Rating Tooltip" editable="false"/>
+                       <Text text="{path: 'addToCart>Price', formatter: '.formatter.formatCurrencyInINRText'}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+   <m:FlexBox class="custom-flexbox">
+    <m:VBox class="custom-vbox">
+        <m:Label text="{i18n>Total}" />
+        <m:Input id="reviewTotalAmountId" width="100%" editable="false" value="{wizard>/0/totalAmount}" />
+    </m:VBox>
+</m:FlexBox>
+
+
+          
+        <form:SimpleForm title="2. Payment Type" editable="false" id="Creditcard" layout="ResponsiveGridLayout" class="customForm">
+            <form:content>
+                <Label text="{i18n>CreditName}"/>
+                <Text text="{wizard>/0/name}"/>
+                <Label text="{i18n>CreditNumber}"/>
+                <Text text="{wizard>/0/number}"/>
+                <Label text="{i18n>CreditSecurity}"/>
+                <Text text="{wizard>/0/security}"/>
+                <Label text="{i18n>ExpirationDate}"/>
+                <Text text="{wizard>/0/expiration}"/>
+            </form:content>
+        </form:SimpleForm>
+        <form:SimpleForm title="2. Payment Type" editable="false" id="BankTransfer" layout="ResponsiveGridLayout" class="customForm">
+            <form:content>
+                <Label text="{i18n>BeneficiaryName}"/>
+                <Text text="{wizard>/0/beneficiaryName}"/>
+                <Label text="{i18n>Bank}"/>
+                <Text text="{wizard>/0/bank}"/>
+                <Label text="{i18n>AccountNumber}"/>
+                <Text text="{wizard>/0/accountNumber}"/>
+                <Label text="{i18n>BankPhoneNumber}"/>
+                <Text text="{wizard>/0/bankPhoneNumber}"/>
+                <Label text="{i18n>BankEmailAddress}"/>
+                <Text text="{wizard>/0/bankEmailAddress}"/>
+            </form:content>
+        </form:SimpleForm>
+        <form:SimpleForm title="2. Payment Type" editable="false" id="CashOnDelivery" layout="ResponsiveGridLayout" class="customForm">
+            <form:content>
+                <Label text="{i18n>FirstName}"/>
+                <Text text="{wizard>/0/firstName}"/>
+                <Label text="{i18n>LastName}"/>
+                <Text text="{wizard>/0/lastName}"/>
+                <Label text="{i18n>PhoneNumber}"/>
+                <Text text="{wizard>/0/phoneNumber}"/>
+                <Label text="{i18n>EmailId}"/>
+                <Text text="{wizard>/0/email}"/>
+            </form:content>
+        </form:SimpleForm>
+        <form:SimpleForm title="3. Address" editable="false" layout="ResponsiveGridLayout" class="customForm">
+            <form:content>
+                <Label text="{i18n>Address}"/>
+                <Text text="{wizard>/0/address}"/>
+                <Label text="{i18n>City}"/>
+                <Text text="{wizard>/0/city}"/>
+                <Label text="{i18n>ZipCode}"/>
+                <Text text="{wizard>/0/zipcode}"/>
+                <Label text="{i18n>Country}"/>
+                <Text text="{wizard>/0/country}"/>
+                <Label text="{i18n>State}"/>
+                <Text text="{wizard>/0/state}"/>
+            </form:content>
+        </form:SimpleForm>
+    </content>
+    <footer class="customFooter">
+        <Bar>
+            <contentRight>
+                <Button press="onPressLog" text="{i18n>Cancel}"/>
+                <Button text="{i18n>Submit}" press="onSubmit" type="Emphasized"/>
+            </contentRight>
+        </Bar>
+    </footer>
+</Page>
+    </pages>
+      </NavContainer>
+        </content>
+    </Page>
+</mvc:View>
